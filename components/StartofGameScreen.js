@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet, Button} from 'react-native';
+import {View,Text,StyleSheet,Button} from 'react-native';
 
 import Input from './Input';
 import Colors from '../constants/color';
@@ -8,7 +8,13 @@ const StartofGameScreen = props =>{
         <View style={styles.container}>
             <Text Style={styles.titleText}>Start of Game</Text>           
             <View style={styles.inputContainer}>   
-                <Input style={styles.input} placeholder="Enter the Number"/>
+                <Input style={styles.input} 
+                        placeholder="Enter the Number"
+                        blurOnSubmit
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        keyboardType="numeric"
+                        maxLength={2}/>
                 <View style={styles.buttonContainer} >
                     <Button style={styles.button} title="Reset" color={Colors.secondary}/>
                     <Button style={styles.button} title="Confirm" color={Colors.primary}/>
