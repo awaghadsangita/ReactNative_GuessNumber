@@ -2,7 +2,7 @@
   "expo": {
     "name": "Guess_Number",
     "slug": "Guess_Number",
-    "sdkVersion": "35.0.0",
+    
     "platforms": [
       "ios",
       "android",
