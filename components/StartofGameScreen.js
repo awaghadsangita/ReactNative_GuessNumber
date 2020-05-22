@@ -1,9 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View,Text,StyleSheet,Button} from 'react-native';
 
 import Input from './Input';
 import Colors from '../constants/color';
 const StartofGameScreen = props =>{
+    const [enteredValue,setEnteredValue]=useState('');
+    const inputNumberHandler = inputText =>{
+        setEnteredValue(inputText.replace(/[^0-9]/g,''));
+    }
     return (
         <View style={styles.container}>
             <Text Style={styles.titleText}>Start of Game</Text>           
@@ -14,7 +18,10 @@ const StartofGameScreen = props =>{
                         autoCapitalize="none"
                         autoCorrect={false}
                         keyboardType="numeric"
-                        maxLength={2}/>
+                        maxLength={2}
+                        onChangeText={inputNumberHandler}
+                        value={enteredValue}
+                        />
                 <View style={styles.buttonContainer} >
                     <Button style={styles.button} title="Reset" color={Colors.secondary}/>
                     <Button style={styles.button} title="Confirm" color={Colors.primary}/>
