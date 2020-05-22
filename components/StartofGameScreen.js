@@ -1,13 +1,14 @@
 import React from 'react';
-import {View,Text,TextInput,StyleSheet, Button} from 'react-native';
+import {View,Text,StyleSheet, Button} from 'react-native';
 
+import Input from './Input'
 const StartofGameScreen = props =>{
     return (
         <View style={styles.container}>
             <Text Style={styles.titleText}>Start of Game</Text>           
             <View style={styles.inputContainer}>   
-                <TextInput style={styles.numberInput} placeholder="Select the Number"></TextInput>
-                <View style={styles.buttonContainer}>
+                <Input style={styles.input} placeholder="Enter the Number"/>
+                <View style={styles.buttonContainer} >
                     <Button style={styles.button} title="Reset"/>
                     <Button style={styles.button} title="Confirm"/>
                 </View>            
@@ -53,8 +54,10 @@ const styles=StyleSheet.create({
         marginLeft:10,
         marginRight:10,
         paddingHorizontal:10,
-        backgroundColor:'blue',
-        
+        backgroundColor:'blue',       
+    },
+    input:{
+        width:150
     }
 })
 export default StartofGameScreen
