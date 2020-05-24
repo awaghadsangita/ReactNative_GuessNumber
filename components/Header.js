@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     headerText:{
         fontSize:30,
         color:'white',
-        fontWeight:"bold"
+        fontWeight:"bold",
     }
 })
 export default Header;

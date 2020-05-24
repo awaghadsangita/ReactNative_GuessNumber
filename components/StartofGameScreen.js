@@ -8,7 +8,7 @@ const StartofGameScreen = props =>{
     const inputNumberHandler = inputText =>{
         setEnteredValue(inputText.replace(/[^0-9]/g,''));
     }
-    return (
+    return (    
         <View style={styles.container}>
             <Text Style={styles.titleText}>Start of Game</Text>           
             <View style={styles.inputContainer}>   
@@ -28,6 +28,7 @@ const StartofGameScreen = props =>{
                 </View>            
             </View>
         </View>       
+        
     );
 }
 const styles=StyleSheet.create({
