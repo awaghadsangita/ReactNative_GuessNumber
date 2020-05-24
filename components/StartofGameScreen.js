@@ -5,12 +5,30 @@ import Input from './Input';
 import Colors from '../constants/color';
 const StartofGameScreen = props =>{
     const [enteredValue,setEnteredValue]=useState('');
+    const [confirmed,setConfirmed]=useState(false);
+    const [selectedValue,setSelectedValue]=useState();
+
     const inputNumberHandler = inputText =>{
         setEnteredValue(inputText.replace(/[^0-9]/g,''));
     }
 
     const resetInputNumber=()=>{
         setEnteredValue('');
+        setConfirmed(false)
+    }
+
+    const confirmInputNumber=()=>{
+        let choosenNumber=parseInt(enteredValue);
+        if(choosenNumber===NaN||choosenNumber<0||choosenNumber>99){
+            return;
+        }
+        setConfirmed(true);
+        setEnteredValue('');
+        setSelectedValue(choosenNumber);    
+    }
+    let confirmedOutput;
+    if(confirmed){
+        confirmedOutput=<Text>Choosen Number : {selectedValue}</Text>
     }
     return (    
         <View style={styles.container}>
@@ -32,9 +50,13 @@ const StartofGameScreen = props =>{
                             color={Colors.secondary}
                             onPress={resetInputNumber}
                             />
-                    <Button style={styles.button} title="Confirm" color={Colors.primary}/>
+                    <Button style={styles.button} 
+                            title="Confirm" 
+                            color={Colors.primary}
+                            onPress={confirmInputNumber}/>
                 </View>            
             </View>
+            {confirmedOutput}
         </View>       
         
     );
