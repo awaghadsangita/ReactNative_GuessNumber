@@ -19,7 +19,7 @@ const StartofGameScreen = props =>{
 
     const confirmInputNumber=()=>{
         let choosenNumber=parseInt(enteredValue);
-        if(choosenNumber===NaN||choosenNumber>0||choosenNumber<=99){
+        if(choosenNumber===NaN||choosenNumber<0||choosenNumber>99){
             Alert.alert("Invalid Number !","Number has to be between 0 To 99 ",[{text:"Okay",style:'destructive',onPress:resetInputNumber}])
             return;
         }
@@ -27,9 +27,18 @@ const StartofGameScreen = props =>{
         setEnteredValue('');
         setSelectedValue(choosenNumber);    
     }
+
+    const onStartGame=selectedNumber=>{
+        props.onGameStart(selectedNumber)
+    }
     let confirmedOutput;
     if(confirmed){
-        confirmedOutput=<Text>Choosen Number : {selectedValue}</Text>
+        confirmedOutput=<View style={styles.summaryContainer}>
+                            <Text>Choosen Number : {selectedValue}</Text>
+                            <Button title="Start a Game" 
+                                    color={Colors.secondary}
+                                    onPress={()=>onStartGame(selectedValue)}/>
+                        </View> 
     }
     return (    
         <View style={styles.container}>
@@ -104,6 +113,19 @@ const styles=StyleSheet.create({
     },
     input:{
         width:150
+    },
+    summaryContainer:{
+        width:180,
+        maxWidth:'50%',
+        alignItems:'center',
+        shadowColor:'black',
+        shadowOffset:{width:0,height:2},
+        shadowRadius:6,
+        shadowOpacity:0.26,
+        backgroundColor:'white',
+        elevation:5,
+        padding:10,
+        marginTop:20
     }
 })
 export default StartofGameScreen
