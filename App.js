@@ -4,20 +4,28 @@ import { StyleSheet, View ,TouchableWithoutFeedback,Keyboard} from 'react-native
 import Header from './components/Header';
 import StartofGameScreen from './components/StartofGameScreen';
 import GameScreen from './components/GameScreen';
-
+import GameOverScreen from './components/GameOverScreen'
 const App= props=> {
   const [userNumber,setUserNumber]=useState(false)
   const [userChosenNumber,setUserChosenNumber]=useState();
-  const startGameHandler= selectedNumber =>{
+  const [guessRounds,setGuessRounds]=useState(0);
+  
+  const startGameHandler = selectedNumber =>{
     setUserChosenNumber(selectedNumber)  
+    setGuessRounds(0);
     setUserNumber(true);
-
+    
   };
 
+  const gameOverHandler = numberOfRounds=>{
+    setGuessRounds(numberOfRounds);
+  }
   let content = <StartofGameScreen onGameStart={startGameHandler}/>
 
-  if(userNumber){
-    content=<GameScreen userChoice={userChosenNumber}/>
+  if(userNumber && guessRounds <=0){
+    content=<GameScreen userChoice={userChosenNumber} onGameOver={gameOverHandler}/>
+  }else if(guessRounds>0){
+    content=<GameOverScreen guessNumber={guessRounds}/>
   }
 
   return (
