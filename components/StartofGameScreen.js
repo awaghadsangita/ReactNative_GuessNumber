@@ -8,6 +8,10 @@ const StartofGameScreen = props =>{
     const inputNumberHandler = inputText =>{
         setEnteredValue(inputText.replace(/[^0-9]/g,''));
     }
+
+    const resetInputNumber=()=>{
+        setEnteredValue('');
+    }
     return (    
         <View style={styles.container}>
             <Text Style={styles.titleText}>Start of Game</Text>           
@@ -23,7 +27,11 @@ const StartofGameScreen = props =>{
                         value={enteredValue}
                         />
                 <View style={styles.buttonContainer} >
-                    <Button style={styles.button} title="Reset" color={Colors.secondary}/>
+                    <Button style={styles.button} 
+                            title="Reset" 
+                            color={Colors.secondary}
+                            onPress={resetInputNumber}
+                            />
                     <Button style={styles.button} title="Confirm" color={Colors.primary}/>
                 </View>            
             </View>
