@@ -4,13 +4,13 @@ import Colors from '../constants/color'
 const GameOverScreen = props =>{
     return(
         <View style={styles.screen}>
-            <Text style={styles.gameOverText} color={Colors.secondary}>Guess Number is {props.guessNumber}</Text>
             <Text style={styles.gameOverText}>The Game is Over!</Text>
             <View style={styles.imageContainer}>
                 <Image 
                     source={require('../assets/images.jpeg')}
                     style={styles.image}/>
             </View>
+            <Text style={styles.gameOverText} color={Colors.secondary}>Guess Number is {props.guessNumber}</Text>
             <Button title="Start a New Game" 
                     color={Colors.secondary}
                     onPress={props.onRestart}/>
