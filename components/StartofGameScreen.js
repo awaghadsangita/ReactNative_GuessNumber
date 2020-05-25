@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {View,Text,StyleSheet,Button,Alert} from 'react-native';
 
 import Input from './Input';
+import MainButton from './MainButton';
 import Colors from '../constants/color';
 const StartofGameScreen = props =>{
     const [enteredValue,setEnteredValue]=useState('');
@@ -35,9 +36,10 @@ const StartofGameScreen = props =>{
     if(confirmed){
         confirmedOutput=<View style={styles.summaryContainer}>
                             <Text>Choosen Number : {selectedValue}</Text>
-                            <Button title="Start a Game" 
-                                    color={Colors.secondary}
-                                    onPress={()=>onStartGame(selectedValue)}/>
+                            <MainButton 
+                                onPress={()=>onStartGame(selectedValue)} style={styles.startButton}>
+                                Start Game
+                            </MainButton>
                         </View> 
     }
     return (    
@@ -125,6 +127,9 @@ const styles=StyleSheet.create({
         elevation:5,
         padding:10,
         marginTop:20
+    },
+    startButton:{
+        backgroundColor:Colors.primary
     }
 })
 export default StartofGameScreen

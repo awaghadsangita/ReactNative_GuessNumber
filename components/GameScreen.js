@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 
-
+import MainButton from '../components/MainButton';
+import Colors from '../constants/color';
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -58,11 +59,15 @@ const GameScreen = props => {
       <Text>Opponent's Guess</Text>
       <Text>{currentGuess}</Text>
       <View style={styles.buttonContainer}>
-      <Button title="LOWER" onPress={nextGuessHandler.bind(this, 'lower')} />
-        <Button
-          title="GREATER"
+      <MainButton  style={styles.button}
+        onPress={nextGuessHandler.bind(this, 'lower')} >
+        LOWER
+      </MainButton>
+        <MainButton style={styles.button}
           onPress={nextGuessHandler.bind(this, 'greater')}
-        />
+        >
+          GREATER
+        </MainButton>
       </View>
     </View>
   );
@@ -80,6 +85,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 300,
     maxWidth: '80%'
+  },
+  button:{
+    width:150,
+    backgroundColor:Colors.secondary
   }
 });
 
