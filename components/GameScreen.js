@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; 
 
 import MainButton from '../components/MainButton';
 import Colors from '../constants/color';
@@ -21,7 +22,6 @@ const GameScreen = props => {
   const [rounds, setRounds] = useState(0);
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
-
   const { userChoice, onGameOver } = props;
 
   useEffect(() => {
@@ -61,12 +61,12 @@ const GameScreen = props => {
       <View style={styles.buttonContainer}>
       <MainButton  style={styles.button}
         onPress={nextGuessHandler.bind(this, 'lower')} >
-        LOWER
+        <Ionicons name="md-remove" size={32} />
       </MainButton>
         <MainButton style={styles.button}
           onPress={nextGuessHandler.bind(this, 'greater')}
         >
-          GREATER
+          <Ionicons name="md-add" size={32} />
         </MainButton>
       </View>
     </View>
@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     maxWidth: '80%'
   },
   button:{
-    width:150,
+    width:90,
+    marginHorizontal:5,
     backgroundColor:Colors.secondary
   }
 });
