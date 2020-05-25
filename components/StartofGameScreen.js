@@ -42,7 +42,7 @@ const StartofGameScreen = props =>{
     }
     return (    
         <View style={styles.container}>
-            <Text Style={styles.titleText}>Start of Game</Text>           
+            <Text style={styles.titleText}>Start of Game</Text>           
             <View style={styles.inputContainer}>   
                 <Input style={styles.input} 
                         placeholder="Enter the Number"
@@ -77,13 +77,13 @@ const styles=StyleSheet.create({
         justifyContent:'center'
     },
     titleText:{
-        color:'pink',
+        color:Colors.secondary,
         fontSize:25,
         fontWeight:"bold",
         marginVertical:20
     },
     inputContainer:{
-        width:300,
+        width:250,
         maxWidth:'80%',
         alignItems:'center',
         shadowColor:'black',
@@ -103,13 +103,12 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         width:'100%',
         justifyContent:'space-between',
-        alignItems:'center'
+        alignItems:'center',
+        paddingHorizontal:40
+        
     },
     button:{
-        marginLeft:10,
-        marginRight:10,
-        paddingHorizontal:10,
-        backgroundColor:'blue',       
+        width:30       
     },
     input:{
         width:150

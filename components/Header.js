@@ -4,7 +4,7 @@ import Colors from '../constants/color';
 const Header = props => {
     return (
             <View style={styles.headerContainer}>
-                <Text Style={styles.headerText}>{props.title}</Text>
+                <Text style={styles.headerText}>{props.title}</Text>
             </View>);
     
 }
@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.primary
     },
     headerText:{
-        fontSize:30,
-        color:'white',
-        fontWeight:"bold",
+        fontSize:25,
+        color:'black',
+        fontWeight:'bold'
     }
 })
 export default Header;
