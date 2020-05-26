@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import {View,Text,StyleSheet,Button,Alert} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 import Input from './Input';
 import MainButton from './MainButton';
