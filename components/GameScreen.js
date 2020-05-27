@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.secondary
   },
   list:{
-    width:'40%',
+    width:'80%',
     justifyContent:'space-between',
     alignItems:'center',
     margin:20
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     padding:15,
     justifyContent:'space-around',
     alignItems:'center',
-    width:'100%'
+    width:'75%'
   }
 });
 
